@@ -1,0 +1,48 @@
+<h1>Introduction to the problem</h1>
+
+<h2>The scenario (POV)</h2>
+
+<p>There are three people involved in the scenario: You, your opponent, and the game master.</p>
+<p>In the beginning, the game master declares 3 positive integers, and place a bunch of stones on the table.</p>
+<p>Starting from you, you and your opponent take turns removing stones from the pile. The number of stones you(pl.) remove must be one of the integers declared by the game master.</p>
+<p>If any of the you(pl.) cannot make a valid move, you lose. The other player is considered to "win."</p>
+<p>For example, a game can go like this.</p>
+<ul>
+  <li>The game master says 2, 3, and 5. There are 12 stones on the table.</li>
+  <li>You remove 5, and 7 are left.</li>
+  <li>Your opponent removes 3, and 4 are left.</li>
+  <li>You remove 3, and 1 is left.</li>
+  <li>your opponent can do nothing. Game over, and you win.</li>
+</ul>
+<p>The "result" depends on how you and your opponent play. For example, if you removed 2 instead of 3 at your last turn, your opponent can remove 2 and you are the own who can't do anything.</p>
+
+<h2>The base question</h2>
+<p>If both players play optimally, who wins?</p>
+
+<h2>The mathematics</h2>
+<p>This question is solved by <b>Grundy numbers</b>.</p>
+<p>For a finite set of integers S, let mex(S) the smallest non-negative integer that is not included in S.</p>
+<p>Examples:</p>
+<ul>
+  <li>mex({})=0</li>
+  <li>mex({-1,0,1})=2</li>
+  <li>mex({0,2,4})=1</li>
+  <li>mex({1,2,3,4,5})=0</li>
+</ul>
+<p>Notice that if S contains 0, the mex of it is not 0, and if S does not contain 0, the mex of it is 0.</p>
+<p>Now, let a, b, c the numbers the game master declared, and consider the sequence:</p>
+<p>g_k = -1 (k &lt; 0), g_k = mex({g_{k-a}, g_{k-b}, g_{k-c}}) </p>
+<p>Let n the number of the stones in the starting pile, then this follows:</p>
+<ul>
+  <li>If g_n is not 0, you win.</li>
+  <li>If g_n is 0, you lose.</li>
+</ul>
+<p>The g_n is called the <b>Grundy number</b> of the pile (or the state of a game in general).</p>
+<p>Here is why:</p>
+<ul>
+  <li>Assume g_n is not 0. By the definition of mex, there is a way for you to make the next Grundy number equal to 0. If you do so, your opponent will lose, which means you win.</li>
+  <li>Assume g_n is 0. No matter how you move, your opponent gets a pile whose Grundy number is not 0. Your opponent can give you zero-Grundy pile on the next turn. After enough turns, you eventually get pile that is too small to do anything.</li>
+</ul>
+
+<h2>The question I consider in this website</h2>
+<p>By the pidgeonhole principle, g_n is trivially periodic. Can we describe the period of g_n using a, b, and c?</p>
