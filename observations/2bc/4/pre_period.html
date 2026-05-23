@@ -1,0 +1,37 @@
+<h2>If x_1 is even</h2>
+<h3>Overview</h3>
+<p>The pre-period consists of 4 parts. I call these part A to D and write the details below.</p>
+
+<h3>Part A</h3>
+<p>The easiest part.</p>
+<p>It is ((0011)^{y_1*2}(22))^q.</p>
+
+<h3>Part B</h3>
+<p>If y_1=1, this part is 001100112203.</p>
+<p>Else, it is (0011)^{y_1}(00112)(0312)^{y_1-2}(00112)(0312)^{y_1}.</p>
+
+<h3>Part C</h3>
+<p>If y_1&leq;2, this part does not exist.</p>
+<p>This part is very hard to explain.</p>
+<ul>
+  <li>First, make a grid of (y_1-2) rows, and (2*q+3)*y_1 columns.</li>
+  <li>Fill all the cells with 0011. Some parts are updated later.</li>
+  <li>For each row i, change the column i to 00112.</li>
+  <li>Repeat this, from j in 1 to q:</li>
+  <ul>
+    <li>For each row i, change the column y_i*j*2 to 00112.</li>
+    <li>For each row i, change the column y_i*j*2+i to 00112.</li>
+  </ul>
+  <li>For each row i,</li>
+  <ul>
+    <li>Let v=q*2*y_2+2*y_2-1.</li>
+    <li>Change the columns v-((y_1-2)-i)+1 to v to 2031.</li>
+    <li>Remark: If i=y_1-2, change nothing.</li>
+  </ul>
+  <li>For each row i, change the columns (2*q+3)*y_1-((y_1-2)-i+1) to (2*q+3)*y_1 to 2031.</li>
+  <li>For each row, change the last column to 20312.</li>
+</ul>
+
+<h3>Part D</h3>
+<p>If y_1=1, this part does not exist.</p>
+<p>Else, it is ((0011)^{y_1-2}(00112)(0011)^{y_1}(00112))^{q+1}(0011)^{y_1-2}(0011203).</p>

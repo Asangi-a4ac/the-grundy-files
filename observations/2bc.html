@@ -1,0 +1,101 @@
+<h1>Observations if a=2</h1>
+For the large category, I followed the convention used in TAKOBEYA, the closed Discord community that is studying this.
+
+<h2>Conventions</h2>
+<ul>
+  <li>Assume 2 &leq; b &leq; c.</li>
+  <li>Let d=b+2.</li>
+  <li>Let r=c&percnt;d.</li>
+  <li>Let q=(c-r)/d. (i.e. Divide c by d, the quotient is q and the remainder is r.)</li>
+  <li>Let // mean the quotient. (Same // as in Python)</li>
+  <li>If multiple sets of conditions are met, the first conditions met should be applied.</li>
+</ul>
+
+<h2>Category 1</h2>
+<h3>Conditions</h3>
+<ul>
+  <li>c=b+2</li>
+  <li>b&percnt;4&NotEqual;1</li>
+</ul>
+<h3>Observation</h3>
+<ul>
+  <li>Let x_1 = (b-2)//4.</li>
+  <li>Let x_2 = (b-2)&percnt;4.</li>
+  <li>The pre-period is nothing.</li>
+  <li>The period length is x_1*8+6+x_2.</li>
+  <li>The period is (0011)^{x_1+1}(2233)^{x_1}(22)(3)^{b-2}.</li>
+</ul>
+
+<h2>Category 2</h2>
+<h3>Conditions</h3>
+<ul>
+  <li>c=b+2</li>
+  <li>b&percnt;4=1</li>
+</ul>
+<h3>Observation</h3>
+<ul>
+  <li>Let x_1 = (b-1)//4.</li>
+  <li>The pre-period is nothing.</li>
+  <li>The period length is x_1*16+6 (=4*b+2).</li>
+  <li>The period is (0011)^{x_1}(0213)(2233)^{x_1-1}(2203)(1001)^{x_1}(1)(2233)^{x_1}(2).</li>
+</ul>
+
+<h2>Category 3</h2>
+<h3>Conditions</h3>
+<ul>
+  <li>b&percnt;4=2</li>
+  <li>c&percnt;4=2</li>
+</ul>
+<h3>Observation</h3>
+<ul>
+  <li>The pre-period is nothing.</li>
+  <li>The period length is 4.</li>
+  <li>The period is (0011).</li>
+</ul>
+<h3>Remarks</h3>
+<p>The period is equal to gcd(a+b, b+c, c+a).</p>
+<p>This might be the easiest one to prove.</p>
+
+<h2>Category 4a</h2>
+<h3>Conditions</h3>
+<ul>
+  <li>r=2</li>
+</ul>
+<h3>Observation</h3>
+<ul>
+  <li>Let x_1=(b+1)//4.</li>
+  <li>Let x_2=(b+1)&percnt;4.</li>
+  <li>The pre-period is nothing.</li>
+  <li>The period length is b+2.</li>
+  <li>Let r=(2) if x_2=1, (22) if x_2=2, and (021) if x_2=3.</li>
+  <li>The period is (0011)^{x_1}r.</li>
+</ul>
+
+<h2>Category 4b</h2>
+<h3>Conditions</h3>
+<ul>
+  <li>b&NotEqual;4</li>
+  <li>b&percnt;4=0</li>
+  <li>r=d/2+2</li>
+</ul>
+<h3>Obesrvations</h3>
+<ul>
+  <li>Let x_1=b/4.</li>
+  <li>Let y_1=x_1//2.</li>
+  <li>The period length is x_1*2+1.</li>
+  <li>The pre-period length is,</li>
+  <ul>
+    <li>If x_1 is even, (8*q+12)*y_1^2 + (2*q+3)*y_1 - 3.</li>
+    <li>If x_1 is odd, (8*q+12)*y_1^2 + (14*q+21)*y_1 + (6*q+7).</li>
+  </ul>
+  <li>The period is,</li>
+  <ul>
+    <li>If x_1 is even, (12001)(1001)^{y_1-1}.</li>
+    <li>If x_1 is odd, (02)(1001)^{y_1}(1).</li>
+  </ul>
+  <li>The pre-period is,</li>
+  <ul>
+    <li>If x_1 is even, I wrote it in <a href="./2bc/4/pre_period.html">another page</a> because it is too long.</li>
+  </ul>
+</ul>
+
