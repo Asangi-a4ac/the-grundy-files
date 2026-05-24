@@ -12,21 +12,22 @@
 
 <h3>Part C</h3>
 <p>If y_1&leq;2, this part does not exist.</p>
-<p>This part is very hard to explain.</p>
+<p>This part is very complicated.</p>
 <ul>
   <li>First, make a grid of (y_1-2) rows, and (2*q+3)*y_1 columns.</li>
   <li>Fill all the cells with 0011. Some parts are updated later.</li>
   <li>For each row i, change the column i to 00112.</li>
   <li>Repeat this, from j in 1 to q:</li>
   <ul>
-    <li>For each row i, change the column y_i*j*2 to 00112.</li>
-    <li>For each row i, change the column y_i*j*2+i to 00112.</li>
+    <li>For each row i, change the column y_1*j*2 to 00112.</li>
+    <li>For each row i, change the column y_1*j*2+i to 00112.</li>
   </ul>
   <li>For each row i,</li>
   <ul>
-    <li>Let v=q*2*y_2+2*y_2-1.</li>
+    <li>Let v=q*2*y_1+2*y_1-1.</li>
     <li>Change the columns v-((y_1-2)-i)+1 to v to 2031.</li>
     <li>Remark: If i=y_1-2, change nothing.</li>
+    <li>Append 2 at the end of the column v.</li>
   </ul>
   <li>For each row i, change the columns (2*q+3)*y_1-((y_1-2)-i+1) to (2*q+3)*y_1 to 2031.</li>
   <li>For each row, change the last column to 20312.</li>
@@ -35,3 +36,46 @@
 <h3>Part D</h3>
 <p>If y_1=1, this part does not exist.</p>
 <p>Else, it is ((0011)^{y_1-2}(00112)(0011)^{y_1}(00112))^{q+1}(0011)^{y_1-2}(0011203).</p>
+
+<h3>Visualization of the sequence</h3>
+<img src="../../../images/2_40_107.png">
+
+<h2>If x_1 is odd</h2>
+<p>Let y_2=y_1+1 because that makes more sense.</p>
+<p>Example: b=12 then y_2=2, b=20 then y_2=3, etc.</p>
+
+<h3>Part A</h3>
+<p>Actually the same as the even case.</p>
+<p>It is ((0011)^{y_1*2+1}(22))^q.</p>
+<p>(Remember, y_1=x_1/2-1/2 because x_1 is odd.)</p>
+
+<h3>Part B</h3>
+<p>If y_2=2, this part is 00110011021002130213.</p>
+<p>Else, it is (0011)^{y_2}(0213)^{y_2-2}(021)(0213)^{y_2}.</p>
+
+<h3>Part C</h3>
+<p>If y_2&leq;2, this part does not exist.</p>
+<p>This part is very complicated.</p>
+<ul>
+  <li>First, make a grid of (y_2-2) rows, and (2*q+3)*y_2 columns.</li>
+  <li>Fill all the cells with 0011. Some parts are updated later.</li>
+  <li>Repeat this, from j in 0 to q:</li>
+  <ul>
+    <li>For each row i, change the column y_2*j*2+1 to 021.</li>
+    <li>For each row i, change the column y_2*j*2+1+i to 021.</li>
+  </ul>
+  <li>For each row i,</li>
+  <ul>
+    <li>Let v=q*2*y_2-1.</li>
+    <li>Change the columns v-((y_2-2)-i)+1 to v to 0213.</li>
+    <li>Remark: If i=y_1-2, change nothing.</li>
+    <li>Change column v+1 to 021.</li>
+  </ul>
+  <li>For each row i, change the columns (2*q+3)*y_2-((y_2-2)-i+1) to (2*q+3)*y_2 to 0213.</li>
+</ul>
+
+<h3>Part D</h3>
+<p>Else, it is ((021)(0011)^{y_2-1}(021)(0011)^{y_2})^{q+1}(021)(0011)^{y_2-1}(0213).</p>
+
+<h3>Visualization of the sequence</h3>
+<img src="../../../images/2_36_97.png">
